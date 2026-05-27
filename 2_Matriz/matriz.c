@@ -3,31 +3,47 @@
 
 int main(void){
     
-    // Matriz Method
-
-    int matriz[3][3], i, j;
-
-    printf("\n Digite os números do elementos: \n \n");
-
-    for(i = 0; i < 3; i++){ // i -> é o indíce da linha da matriz
-        for(j = 0; j < 3; j++){ // j -> é o indíce da coluna da matriz
-            printf("\n Elementos[%d][%d]", i, j);
+    // Matriz 3x3
+    
+    int matriz[2][3];
+    int i, j;
+    detX, detY, detZ;
+    
+    printf("\n Digite os valores do elemento: \n \n");
+    
+    for(i = 0; i < 2; i++){
+        for(j = 0; j < 3; j++){
+            printf("\n Elemento[%d][%d] = ",i, j);
             scanf("%d", &matriz[i][j]);
         }
     }
-
-    printf("\n********Saída de Dados********\n");
-
-    for(i = 0; i < 3; i++){ // i -> é o indíce da linha da matriz
-        for(j = 0; j < 3; j++){ // j -> é o indíce da coluna da matriz
-            printf("\nElementos[%d][%d] = %d", i, j, matriz[i][j]);
+    
+    printf("\n ***** Saída de Dados ***** \n \n");
+    
+    for(i = 0; i < 2; i++){
+        printf("| ");
+        for(j = 0; j < 3; j++){
+            printf("%d | %d", matriz[i][j]);
         }
+        printf(" |\n");
     }
-
-    // Kramer Method
-
-    int detX, detY, detX;
-
-
+    
+    int escolheDeterminante;
+    
+    if(escolheDeterminante == "Dx"){
+        matriz[0][2] * matriz[1][1] - matriz[0][1] * matriz[1][2];
+        
+    } else if(escolheDeterminante == "Dy"){
+        matriz[0][0] * matriz[1][2] - matriz[0][2] * matriz[1][0];
+        
+    } else if(escolheDeterminante == "Dz"){
+        matriz[0][0] * Matriz[1][1] - matriz[0][1] * matriz[1][0];
+        
+    }
+    
+    // Matriz 2x2
+    
+    
+    
     return 0;
 }
