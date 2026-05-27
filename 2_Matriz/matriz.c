@@ -1,52 +1,103 @@
-<<<<<<< HEAD
 #include <stdio.h>
 #include <math.h>
 
-int main(void){
+// Matriz 3x3
+
+void Matrix(double matriz[3][4]){
     
-    // Matriz 3x3
-    
-    int matriz[2][3];
     int i, j;
-    detX, detY, detZ;
     
-    printf("\n Digite os valores do elemento: \n \n");
+    printf("\n Digite os elementos dos valores: \n \n");
     
-    for(i = 0; i < 2; i++){
-        for(j = 0; j < 3; j++){
-            printf("\n Elemento[%d][%d] = ",i, j);
-            scanf("%d", &matriz[i][j]);
+    for(i = 0; i < 3; i++){
+        for(j = 0; j < 4; j++){
+            printf("\nElemento[%d][%d] = ", i, j);
+            scanf("%lf", &matriz[i][j]);
         }
     }
     
-    printf("\n ***** Saída de Dados ***** \n \n");
+    printf("\n ***** Saída de Dados *****\n \n");
     
-    for(i = 0; i < 2; i++){
+    for(i = 0; i < 3; i++){
         printf("| ");
-        for(j = 0; j < 3; j++){
-            printf("%d | %d", matriz[i][j]);
+        for(j = 0; j < 4; j++){
+            printf("%8.2lf", matriz[i][j]);
         }
         printf(" |\n");
     }
+}
+
+
+double det(double matriz[3][4]){
+    return
+    matriz[0][0] * (matriz[1][1]*matriz[2][2] - matriz[1][2]*matriz[2][1])
+    -
+    matriz[0][1] * (matriz[1][0]*matriz[2][2] - matriz[1][2]*matriz[2][0])
+    +
+    matriz[0][2] * (matriz[1][0]*matriz[2][1] - matriz[1][1]*matriz[2][0]);
     
-    int escolheDeterminante;
+}
+
+double detX(double matriz[3][4]){
+    return
+    matriz[0][3] * (matriz[1][1]*matriz[2][2] - matriz[1][2]*matriz[2][1])
+    -
+    matriz[0][1] * (matriz[1][3]*matriz[2][2] - matriz[1][2]*matriz[2][3])
+    +
+    matriz[0][2] * (matriz[1][3]*matriz[2][1] - matriz[1][1]*matriz[2][3]);
     
-    if(escolheDeterminante == "Dx"){
-        matriz[0][2] * matriz[1][1] - matriz[0][1] * matriz[1][2];
-        
-    } else if(escolheDeterminante == "Dy"){
-        matriz[0][0] * matriz[1][2] - matriz[0][2] * matriz[1][0];
-        
-    } else if(escolheDeterminante == "Dz"){
-        matriz[0][0] * Matriz[1][1] - matriz[0][1] * matriz[1][0];
-        
+}
+
+double detY(double matriz[3][4]){
+    return
+    matriz[0][0] * (matriz[1][3]*m[2][2] - matriz[1][2]*matriz[2][3])
+    -
+    matriz[0][3] * (matriz[1][0]*matriz[2][2] - matriz[1][2]*matriz[2][0])
+    +
+    matriz[0][2] * (matriz[1][0]*matriz[2][3] - matriz[1][3]*matriz[2][0]);
+}
+
+double detZ(double matriz[3][4]){
+    return
+    matriz[0][0] * (matriz[1][1]*matriz[2][3] - matriz[1][3]*matriz[2][1])
+    -
+    matriz[0][1] * (matriz[1][0]*matriz[2][3] - matriz[1][3]*matriz[2][0])
+    +
+    matriz[0][3] * (matriz[1][0]*matriz[2][1] - matriz[1][1]*matriz[2][0]);
+}
+    
+}
+
+
+void crammer(double matriz[3][4]){
+    
+    double D = det(matriz);
+    
+    if(D == 0){
+        printf("Sistema sem solução única. \n");
+        return;
     }
     
-    // Matriz 2x2
+    double x = detX(matriz) / D;
+    double y = detY(matriz) / D;
+    double z = detZ(matriz) / D;
+    
+    printf("\n A solução para o sistema é: \n \n");
     
     
+    printf("x= %.2lf\n", x);
+    printf("y= %.2lf\n", y);
+    printf("z= %.2lf\n", z);
+}
+
+int main(void){
+    
+    double matriz[3][4];
+    
+    Matrix(matriz);
+    
+    crammer(matriz);
     
     return 0;
 }
-=======
->>>>>>> e94a718c6661bb03a11e881dc29a1daddededa3c
+
