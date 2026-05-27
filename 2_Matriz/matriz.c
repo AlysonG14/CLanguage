@@ -50,7 +50,7 @@ double detX(double matriz[3][4]){
 
 double detY(double matriz[3][4]){
     return
-    matriz[0][0] * (matriz[1][3]*m[2][2] - matriz[1][2]*matriz[2][3])
+    matriz[0][0] * (matriz[1][3]*matriz[2][2] - matriz[1][2]*matriz[2][3])
     -
     matriz[0][3] * (matriz[1][0]*matriz[2][2] - matriz[1][2]*matriz[2][0])
     +
@@ -66,7 +66,6 @@ double detZ(double matriz[3][4]){
     matriz[0][3] * (matriz[1][0]*matriz[2][1] - matriz[1][1]*matriz[2][0]);
 }
     
-}
 
 
 void crammer(double matriz[3][4]){
