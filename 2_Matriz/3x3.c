@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include <math.h>
 
-// Matriz 3x3
+// Matriz 3x3 - Crammer Method
 
 void Matrix(double matriz[3][4]){
     
